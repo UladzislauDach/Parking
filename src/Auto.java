@@ -5,10 +5,11 @@ public class Auto implements Comparable<Auto> {
     static boolean[] trailers = {true, false, false, false}; //фолсы что бы реже попадались авто с прицепами
 
     String brand, colour;
-    boolean isAutomat, trailer;
-    int weight;
+    boolean isAutomat;
+    private boolean trailer;
+    private int weight;
 
-    public Auto(String brand, String colour, boolean isAutomat, boolean trailer, int weight) {
+    Auto(String brand, String colour, boolean isAutomat, boolean trailer, int weight) {
         if (trailer || weight >= 3000 || Parking.place <= 0) {
             System.out.println("Автомобиль " + brand + " " + colour + ", АКПП " + isAutomat + ", прицеп "
                     + trailer + ", масса " + weight + " не может посетить парковку т к имеет имеет прицеп, " +
