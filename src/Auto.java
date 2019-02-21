@@ -1,4 +1,4 @@
-public class Auto {
+public class Auto implements Comparable<Auto> {
     static String[] brands = {"Audi", "Mazda", "Kia", "Toyota", "Honda"};
     static String[] colours = {"White", "Red", "Blue", "Orange", "Black"};
     static boolean[] isAutomats = {true, false};
@@ -10,7 +10,7 @@ public class Auto {
 
     public Auto(String brand, String colour, boolean isAutomat, boolean trailer, int weight) {
         if (trailer || weight >= 3000 || Parking.place <= 0) {
-            System.out.println("Автомобиль " + brand + " " + colour + ", кпп " + isAutomat + ", прицеп "
+            System.out.println("Автомобиль " + brand + " " + colour + ", АКПП " + isAutomat + ", прицеп "
                     + trailer + ", масса " + weight + " не может посетить парковку т к имеет имеет прицеп, " +
                     "имеет слишком большую массу, либо нет мест");
 
@@ -21,7 +21,7 @@ public class Auto {
             this.trailer = trailer;
             this.weight = weight;
             Parking.place--;
-            System.out.println("Автомобиль " + brand + " " + colour + ", кпп " + isAutomat +
+            System.out.println("Автомобиль " + brand + " " + colour + ", АКПП " + isAutomat +
                     ", прицеп " + trailer + ", масса " + weight + " приехал на парковку. Свободных мест : " + Parking.place);
 
         }
@@ -30,7 +30,12 @@ public class Auto {
 
     @Override
     public String toString() {
-        return brand + " " + colour + ", кпп " + isAutomat + ", прицеп " + trailer + ", масса " + weight;
+        return brand + " " + colour + ", АКПП " + isAutomat + ", прицеп " + trailer + ", масса " + weight;
+    }
+
+    @Override
+    public int compareTo(Auto auto){
+        return this.brand.charAt(0) - auto.brand.charAt(0);
     }
 
 
