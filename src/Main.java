@@ -34,7 +34,8 @@ public class Main {
 
                 case 1:
                     Parking parking = new Parking(addAutoToList()); //создаём паркинг и туда передаём лист авто++
-                    Parking.deliteNull(); //удаление авто с прицепом и массой больше 3000 ???
+                    Parking.deliteNull(); //удаление авто с прицепом и массой больше 3000 ??? нужен для удаления
+                    // объектов с полями налл (создаются при НЕ прохождении IF в конструкторе Auto
                     break;
                 case 2:
                     printAutoInParking(Parking.getAutos()); //вывод списка авто на парковке++
