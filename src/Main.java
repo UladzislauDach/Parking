@@ -15,7 +15,16 @@ public class Main {
         }
         Parking.setPlace(place); //устанавливаем размер парковки++
 
-        System.out.println("Введите 1 что бы заполнить паркинг 30ю рандомными авто \n");
+        System.out.println("1 - заполнение паркинга 30ю рандомными авто \n" +
+                "2 - вывести список авто находящихся на парковке \n" +
+                "3 - удалить рандомный авто с паркинга \n" +
+                "4 - добавить рандомный авто на паркинг\n" +
+                "5 - количество белых авто\n" +
+                "6 - количество авто с автоматом\n" +
+                "7 - автомобили с одинаковой маркой и цветом\n" +
+                "8 - полностью одинаковые авто\n" +
+                "9 - отсортировать список авто по марке\n" +
+                "Для выхода введите любое другое число");
 
         int chose = 1;
         while (chose > 0 && chose < 10) {
@@ -37,19 +46,22 @@ public class Main {
                     Parking.setAutos(addNewAuto(addAuto(), Parking.getAutos())); //добавление одного рандомного авто (если есть места). ++
                     break;
                 case 5:
-                    System.out.println("Количество белых авто на парковке " + whiteAuto(Parking.getAutos())); // вывод количества белых авто ++
+                    System.out.println("Количество белых авто на парковке: " + whiteAuto(Parking.getAutos())); // вывод количества белых авто ++
                     break;
                 case 6:
-                    System.out.println("Количество авто с АКПП " + autoWithAutomat(Parking.getAutos())); // вывод количества авто с автоматом
+                    System.out.println("Количество авто с АКПП: " + autoWithAutomat(Parking.getAutos())); // вывод количества авто с автоматом
                     break;
                 case 7:
+                    System.out.println("Автомобили с одинаковым цветом и маркой :");
                     sameBrandAndColour(Parking.getAutos()); // вывод авто с одинаковой маркой и цветом ++
                     break;
                 case 8:
+                    System.out.println("Одинаковые автомобили:");
                     sameAuto(Parking.getAutos()); // вывод абсолютно одинаковых авто на парковке (хешкод) ++
                     break;
                 case 9:
                     Parking.setAutos(sortAutoWithBrand(Parking.getAutos())); //сортировка листа с его изменением ++
+                    System.out.println("Список автомобилей отсортирован. Для вывода на экран введите 2");
                 default:
                     break;
             }
