@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    private static int chose = 1;
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -25,9 +27,10 @@ public class Main {
                 "9 - отсортировать список авто по марке\n" +
                 "Для выхода введите любое другое число");
 
-        int chose = 1;
+
+        Scanner sc2 = new Scanner(System.in);
         while (chose > 0 && chose < 10) {
-            chose = sc.nextInt();
+            chose = sc2.nextInt();
             switch (chose) {
 
 
@@ -90,12 +93,16 @@ public class Main {
     }
 
     private static ArrayList<Auto> deliteAuto(ArrayList<Auto> autos) {
-        Random random = new Random();
-        int i = random.nextInt(autos.size());
-        System.out.println("Авто " + autos.get(i).toString() + " уехал с парковки. Свободных мест "
-                + (Parking.getPlace()+1));
-        autos.remove(i);
-        Parking.setPlace(Parking.getPlace()+1);
+        if (Parking.place <= (1 +chose)) {
+            Random random = new Random();
+            int i = random.nextInt(autos.size());
+            System.out.println("Авто " + autos.get(i).toString() + " уехал с парковки. Свободных мест "
+                    + (Parking.getPlace() + 1));
+            autos.remove(i);
+            Parking.setPlace(Parking.getPlace() + 1);
+        } else {
+            System.out.println("Парковка пуста");
+        }
         return autos;
     }
 
