@@ -23,13 +23,12 @@ public class Main {
                 "5 - количество белых авто\n" +
                 "6 - количество авто с автоматом\n" +
                 "7 - автомобили с одинаковой маркой и цветом\n" +
-                "8 - полностью одинаковые авто\n" +
-                "9 - отсортировать список авто по марке\n" +
+                "8 - отсортировать список авто по марке\n" +
                 "Для выхода введите любое другое число");
 
 
         Scanner sc2 = new Scanner(System.in);
-        while (chose > 0 && chose < 10) {
+        while (chose > 0 && chose < 9) {
             chose = sc2.nextInt();
             switch (chose) {
 
@@ -59,10 +58,6 @@ public class Main {
                     sameBrandAndColour(Parking.getAutos()); // вывод авто с одинаковой маркой и цветом ++
                     break;
                 case 8:
-                    System.out.println("Одинаковые автомобили:");
-                    sameAuto(Parking.getAutos()); // вывод абсолютно одинаковых авто на парковке (хешкод) ++
-                    break;
-                case 9:
                     Parking.setAutos(sortAutoWithBrand(Parking.getAutos())); //сортировка листа с его изменением ++
                     System.out.println("Список автомобилей отсортирован. Для вывода на экран введите 2");
                 default:
@@ -141,22 +136,8 @@ public class Main {
                     caunt++;
                 }
             }
-            if (caunt > 1) System.out.println("Авто " + a.toString() + " имеют аналогичные себе по марке и цвету " +
-                    (caunt) + " шт");
-        }
-    }
-
-    private static void sameAuto(ArrayList<Auto> autos) {
-        for (Auto a : autos) {
-            int caunt = 0;
-            for (Auto b : autos) {
-                if (a.hashCode() == b.hashCode()) { //тут еще eqals переопределённый должен быть??
-                    caunt++;
-                }
-            }
-            if (caunt > 1) System.out.println("Одинаковые авто: " + a.toString() + " имеют аналогичные себе" +
-                    (caunt) + " шт");
-
+            if (caunt > 1) System.out.println("Авто " + a.toString() + " имеет похожий по марке и цвету. Есть " +
+                    (caunt-1) + " похожих авто");
         }
     }
 
