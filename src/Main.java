@@ -143,7 +143,7 @@ public class Main {
         for (Auto a : autos) {
             int caunt = 0;
             for (Auto b : autos) {
-                if (a.hashCode() == b.hashCode()) {
+                if (a.hashCode() == b.hashCode()) { //тут еще eqals переопределённый должен быть??
                     caunt++;
                 }
             }
