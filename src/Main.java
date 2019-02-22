@@ -76,7 +76,7 @@ public class Main {
     }
 
     private static ArrayList<Auto> addAutoToList() { //помещаем 30 рандомных авто в лист, ретурним лист
-        ArrayList<Auto> autoList = new ArrayList<Auto>();
+        ArrayList<Auto> autoList = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
             autoList.add(addAuto());
         }
@@ -111,7 +111,7 @@ public class Main {
     private static int whiteAuto(ArrayList<Auto> autos) {
         int count = 0;
         for (Auto a : autos) {
-            if (a.colour == "White") {
+            if (a.colour.equals("White")) {
                 count++;
             }
         }
