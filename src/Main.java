@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите необходимое количество мест на парковке (от 5 до 50)  ");
+        System.out.println("Введите количество мест на парковке (от 5 до 50)  ");
         int place = sc.nextInt();
         while (place < 5 || place > 50) {
             System.out.println("Incorrect value. Plz, try again");
